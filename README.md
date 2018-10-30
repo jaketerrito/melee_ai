@@ -8,7 +8,7 @@ How to setup Dolphin for pip input on Linux (locations may change for mac, see r
 4. create a new file called pipe.ini with these contents:
 
 ~~~
-[GCPad1]
+[Profile]
 Device = Pipe/0/pipe1
 Buttons/A = `Button A`
 Buttons/B = `Button B`
@@ -39,7 +39,7 @@ C-Stick/Right = `Axis C X +`
 8. chmod 777 Pipes/pipe
 9. In Dolphin, go to Controllers settings
 10. Set port one to 'Standard Controller', open controller config
-11. Load 'pipe' profile, set device to Pipe/0/pipe
+11. Load 'pipe' profile, set device to Pipe/0/pipe. This might be kindof weird to do, if it blanks everything save the blanked profile, edit the profile file (pipe.ini) and add all the lines from above starting with 'Buttons/A...' back into it. It should work after that
 12. Enable 'Background Input'
 13. hit OK, run game
 
