@@ -7,6 +7,7 @@ How to setup Dolphin for pip input on Linux (locations may change for mac, see r
 3. mkdir -p Profiles/GCPad
 4. create a new file called pipe.ini with these contents:
 
+~~~
 [GCPad1]
 Device = Pipe/0/pipe1
 Buttons/A = `Button A`
@@ -29,6 +30,7 @@ C-Stick/Up = `Axis C Y -`
 C-Stick/Down =  `Axis C Y +`
 C-Stick/Left = `Axis C X -`
 C-Stick/Right = `Axis C X +`
+~~~
 
 
 5. Navigate to ~/.local/share/dolphin-emu
