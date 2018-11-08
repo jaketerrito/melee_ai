@@ -1,5 +1,4 @@
 import time
-import mss
 import numpy as np
 import sys
 import os
@@ -44,11 +43,12 @@ def make_clean(button_arr):
         release(but)
 
 def start_game_from_char_select():
-    button_arr = ["A", "B", "Z", "L", "R", "Y", "X"]
+    button_arr = ["A", "B", "Z", "L"]
 
     # Clean up the pipe so no previous inputs are in it
     # Only necessary if a script crashed for some reason
     make_clean(button_arr)
+    
 
     # Move to and Select Falco
     set_stick("MAIN", 0.5, 0)
@@ -73,7 +73,7 @@ def start_game_from_char_select():
     p_and_r("A")
 
     # Enter match select screen
-    time.sleep(1/4)
+    time.sleep(1/2)
     p_and_r("START")    
 
     # Move to and start a game on Battlefield
@@ -88,12 +88,12 @@ def start_game_from_char_select():
     start_time = time.time()
     frames = 0
     ri = 0
-    while(time.time() - start_time < 126):
+    while(time.time() - start_time < 10):
         rmone = np.random.uniform()
         rmtwo = np.random.uniform()
         set_stick("MAIN", rmone, rmtwo)
         if(frames % 2 == 1):
-            ri = np.random.randint(0, 7)
+            ri = np.random.randint(0, len(button_arr))
             press(button_arr[ri])
         else:
             release(button_arr[ri])
@@ -102,4 +102,29 @@ def start_game_from_char_select():
     # Clean the pipe by reseting the stick and release everything
     make_clean(button_arr)
 
-start_game_from_char_select()
+def do_rand_actions():
+    button_arr = ["A", "B", "Z", "L"]
+    frames = 0
+    ri = 0
+    start_time = time.time()
+    while(time.time() - start_time < 120):
+        rmone = np.random.uniform()
+        rmtwo = np.random.uniform()
+        set_stick("MAIN", rmone, rmtwo)
+        if(frames % 2 == 1):
+            ri = np.random.randint(0, len(button_arr))
+            press(button_arr[ri])
+        else:
+            release(button_arr[ri])
+        frames = frames + 1
+
+    # Clean the pipe by reseting the stick and release everything
+    make_clean(button_arr)
+
+# Process on training:
+# Time battle, time on 99 min
+# We select characters etc. We start the script in game right at start of match
+# Keras model with custom loss
+
+do_rand_actions()
+#start_game_from_char_select()
