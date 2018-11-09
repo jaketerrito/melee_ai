@@ -14,9 +14,9 @@ batch_size = 128
 epochs = 30
 
 # input image dimensions
-img_rows, img_cols = 76//2, 66//2
+img_rows, img_cols = 38, 32
 
-img_location = "percentages\\"
+img_location = "percentages/"
 
 data = []
 labels = []
@@ -54,7 +54,7 @@ model = Sequential()
 model.add(Conv2D(64, kernel_size=(3, 3),
                  activation='relu',
                  input_shape=(img_rows,img_cols,1)))
-model.add(Conv2D(32, (3, 3), activation='relu'))
+model.add(Conv2D(64,kernel_size=(3,3), activation='relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Flatten())
 model.add(Dense(32, activation='relu'))
@@ -65,7 +65,6 @@ model.compile(loss=keras.losses.binary_crossentropy,
               metrics=['accuracy'])
 
 
-
 filepath="models/weights-improvement-{epoch:02d}-{acc:.2f}.hdf5"
 checkpoint = ModelCheckpoint(filepath, monitor='loss', verbose=1, save_best_only=True, mode='min')
 callbacks_list = [checkpoint]
@@ -74,5 +73,4 @@ model.fit_generator(
 	steps_per_epoch=len(data) / batch_size * 2,
 	epochs=epochs,
 	verbose=1,
-	callbacks=callbacks_list,
-	validation_data=datagen.flow(data,labels,batch_size=batch_size,subset='validation'))
+	callbacks=callbacks_list)

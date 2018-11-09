@@ -2,6 +2,8 @@ import time
 import mss
 import numpy
 import matplotlib.pyplot as plt
+from PIL import Image
+from percentages import get_percents
 
 # Screenshot stress test
 def screen_record_efficient():
@@ -18,11 +20,10 @@ def screen_record_efficient():
         fps += 1
     return fps
 
-print("MSS:", screen_record_efficient())
+def main():
+    sct = mss.mss()
+    g = get_percents(sct, 1920, 1080, 0)
+    while True:
+        print(next(g))
 
-
-# pip install pyautogui to get keyboard output library
-# run this command to press a key:
-
-import pyautogui as pg
-pg.press("a")
+main()
