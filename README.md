@@ -41,7 +41,14 @@ C-Stick/Right = `Axis C X +`
 10. Set port one to 'Standard Controller', open controller config
 11. Load 'pipe' profile, set device to Pipe/0/pipe. This might be kindof weird to do, if it blanks everything save the blanked profile, edit the profile file (pipe.ini) and add all the lines from above starting with 'Buttons/A...' back into it. It should work after that
 12. Enable 'Background Input'
-13. hit OK, run game
+13. Go into '~/.config/dolphin-emu/Dolphin.ini and change' and change values to this format. (Have to do everytime you move the window)
+~~~
+RenderWindowXPos = Monitor Resolution X - 640
+RenderWindowYPos = Monitor Resolution Y - 480
+RenderWindowWidth = 640
+RenderWindowHeight = 480
+~~~
+14. hit OK, run game
 
 Only use the original Melee 1.02 NTCS rom, found here: https://the-eye.eu/public/rom/Nintendo%20Gamecube/
 under Super Smash Bros Melee.7z
