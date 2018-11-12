@@ -151,7 +151,7 @@ def main():
     reward_gen = get_rewards(sct, s_w, s_h)
     batch_size = 60
 
-    agent = Agent(file="agentweights-4.343478260869565.hdf5",
+    agent = Agent(file=None,
                   batch_size=batch_size)
 
     start_time = time.time()
