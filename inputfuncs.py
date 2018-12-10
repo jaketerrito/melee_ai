@@ -44,7 +44,7 @@ def make_clean(button_arr):
     for but in button_arr:
         release(but)
 
-def release_everythang(button_arr):
+def release_everything(button_arr):
     for but in button_arr:
         release(but)
 

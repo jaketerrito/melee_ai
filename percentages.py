@@ -5,6 +5,7 @@ from keras.layers import Conv2D, MaxPooling2D
 from PIL import Image
 import numpy as np
 import mss
+import time
 
 def get_percents(sct, s_w, s_h, player):
     img_rows, img_cols = 38, 32
@@ -38,7 +39,6 @@ def get_percents(sct, s_w, s_h, player):
             if(guess.index(max(guess)) != 10):
                 num =str(guess.index(max(guess))) + num
         if num == '':
-            yield(1000)
+            yield(10000)
         else:
             yield(int(num))
-        
